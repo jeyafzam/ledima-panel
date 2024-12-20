@@ -11,7 +11,7 @@ const menuItems = [
 
 const MenuSection = () => {
   return (
-    <div className="bg-[#FFFFFF] mb-10">
+    <div className="bg-[#FFFFFF] mb-5">
       <div className="flex justify-between items-center">
         {menuItems.map((item, index) => (
           <div

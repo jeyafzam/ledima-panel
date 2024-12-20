@@ -5,7 +5,7 @@ import Image from "next/image";
 const MainSection: React.FC = () => {
   return (
     <div className="flex  border-b border-[#B2B2B2]">
-      <div className="flex flex-col gap-5 ml-8  w-[170px]">
+      <div className="flex flex-col gap-4 ml-8  w-[170px]">
         <div className="flex flex-col  bg-white gap-2 ">
           <div className="text-6xl justify-center  items-center flex p-5">
             25
@@ -22,7 +22,7 @@ const MainSection: React.FC = () => {
           </div>
         </div>
 
-        <div className="flex flex-col gap-2 bg-[#3F51B5] text-white  ">
+        <div className="flex flex-col gap-2 bg-[#3F51B5] text-white">
           <div className="flex flex-col gap-3 items-center p-2">
             <Image
               src="/images/png/laundry-detergent.png"
@@ -56,7 +56,7 @@ const MainSection: React.FC = () => {
         </div>
       </div>
 
-      <div className=" flex flex-col gap-4 ml-8  w-[170px]">
+      <div className=" flex flex-col gap-2 ml-8  w-[170px]">
         <div>
           <div className="flex flex-col gap-2 bg-[#D4E1F4] p-4 ">
             <div className="flex items-center justify-between bg-[#D9D9D9] rounded-[30px]  ">

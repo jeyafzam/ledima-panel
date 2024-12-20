@@ -7,9 +7,9 @@ import MainSection from "@/Components/MainSection";
 
 const Dashboard = () => {
   return (
-    <div className="min-h-screen bg-[#EDEDED]">
+    <div className="h-screen bg-[#EDEDED]">
       <div className="container mx-auto lg:max-w-[1150px]">
-        <header className="pt-10 mb-6 flex justify-between  items-center">
+        <header className="pt-5 mb-3 flex justify-between  items-center">
           <div>
             <Image
               src="/images/logobig.png"
@@ -36,7 +36,7 @@ const Dashboard = () => {
         </header>
         <MenuSection />
         <MainSection />
-        <footer className="flex justify-between pb-20">
+        <footer className="flex justify-between pb-3">
           <span className="text-xs text-[#646464] mt-2">
             لدیما، دستیار آنلاین فروش
           </span>
