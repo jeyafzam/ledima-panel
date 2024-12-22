@@ -1,13 +1,13 @@
-"use client";
+import "@/Styles/global.css";
 import React from "react";
 import Image from "next/image";
 
 const MainSection: React.FC = () => {
   return (
-    <div className="flex  border-b border-[#B2B2B2]">
-      <div className="flex flex-col gap-4 ml-8  w-[170px]">
+    <div className="flex md:flex-row md:justify-between">
+      <div className="flex flex-col gap-4 ml-5 w-[270px] md:w-[170px]">
         <div className="flex flex-col  bg-white gap-2 ">
-          <div className="text-6xl justify-center  items-center flex p-5">
+          <div className="text-6xl justify-center items-center flex p-5">
             25
           </div>
 
@@ -56,22 +56,22 @@ const MainSection: React.FC = () => {
         </div>
       </div>
 
-      <div className=" flex flex-col gap-2 ml-8  w-[170px]">
+      <div className=" flex flex-col gap-2 ml-8 w-[270px] md:w-[170px]">
         <div>
           <div className="flex flex-col gap-2 bg-[#D4E1F4] p-4 ">
-            <div className="flex items-center justify-between bg-[#D9D9D9] rounded-[30px]  ">
+            <div className="flex items-center justify-between bg-[#F6F6F4] hover:bg-[#D9D9D9] transition duration-300 rounded-[30px]">
               <div className="bg-[#009E87] text-[#A4FCF9] w-8 h-8 rounded-full  flex items-center justify-center">
                 ا
               </div>
               <p className="text-xs pl-3">فروشگاه ابرار</p>
             </div>
-            <div className="flex items-center justify-between bg-[#EDEEEF] rounded-[30px]">
+            <div className="flex items-center justify-between bg-[#F6F6F4] hover:bg-[#D9D9D9] transition duration-300 rounded-[30px]">
               <div className="bg-[#009E87] text-[#A4FCF9] w-8 h-8 rounded-full  flex items-center justify-center">
                 ا
               </div>
               <p className="text-xs pl-3">حمید اسکندری</p>
             </div>
-            <div className="flex items-center justify-between bg-[#F6F6F4] rounded-[30px]">
+            <div className="flex items-center justify-between bg-[#F6F6F4] hover:bg-[#D9D9D9] transition duration-300 rounded-[30px]">
               <div className="bg-[#009E87] text-[#A4FCF9] w-8 h-8 rounded-full  flex items-center justify-center">
                 س
               </div>
@@ -79,32 +79,32 @@ const MainSection: React.FC = () => {
             </div>
           </div>
 
-          <p className="flex mb-2 text-xs items-center justify-center bg-[#D9E8FB] p-3">
+          <p className="flex mb-2 text-xs items-center justify-center bg-[#F6F6F4] p-3">
             جدیدترین سفارشات
           </p>
         </div>
 
         <div>
           <div className="flex flex-col bg-[#FFD95D] gap-2 p-4">
-            <div className="flex items-center justify-between bg-[#FBF7CA] rounded-[30px]">
+            <div className="flex items-center justify-between bg-[#FFF1CF] hover:bg-[#FFFFC6] transition duration-300 rounded-[30px]">
               <div className="bg-[#009E87] text-[#A4FCF9] w-8 h-8 rounded-full  flex items-center justify-center">
                 ا
               </div>
               <p className="text-xs pl-3">فروشگاه ابرار</p>
             </div>
-            <div className="flex items-center justify-between bg-[#FFFFC6] rounded-[30px]">
+            <div className="flex items-center justify-between bg-[#FFF1CF] hover:bg-[#FFFFC6] transition duration-300 rounded-[30px]">
               <div className="bg-[#009E87] text-[#A4FCF9] w-8 h-8 rounded-full  flex items-center justify-center">
                 ا
               </div>
               <p className="text-xs pl-3">حمید اسکندری</p>
             </div>
-            <div className="flex items-center justify-between bg-[#FFF0D0] rounded-[30px]">
+            <div className="flex items-center justify-between bg-[#FFF1CF] hover:bg-[#FFFFC6] transition duration-300 rounded-[30px]">
               <div className="bg-[#009E87] text-[#A4FCF9] w-8 h-8 rounded-full  flex items-center justify-center">
                 س
               </div>
               <p className="text-xs pl-3">فروشگاه ستارگان</p>
             </div>
-            <div className="flex items-center justify-between bg-[#FFEEC5] rounded-[30px] ">
+            <div className="flex items-center justify-between bg-[#FFF1CF] hover:bg-[#FFFFC6] transition duration-300 rounded-[30px] ">
               <div className="bg-[#009E87] text-[#A4FCF9] w-8 h-8 rounded-full  flex items-center justify-center">
                 س
               </div>
@@ -112,23 +112,12 @@ const MainSection: React.FC = () => {
             </div>
           </div>
 
-          <div className="flex mb-2 text-xs items-center  bg-[#FEEECB] p-3">
-            <div>
-              <Image
-                src="/images/png/location.png"
-                alt="location"
-                width={22}
-                height={22}
-                style={{
-                  filter: "invert(1)",
-                }}
-              />
-            </div>
+          <div className="flex mb-2 text-xs items-center justify-center bg-[#FCF0CA] p-3">
             <p className="pr-3">آماده ارسال در تهران</p>
           </div>
         </div>
       </div>
-      <div className="flex-1 flex items-center justify-center ">
+      <div className="flex-1 items-center justify-center hidden md:block">
         <Image
           src="/images/bg6_1.png"
           alt="Office Setup"
@@ -139,5 +128,4 @@ const MainSection: React.FC = () => {
     </div>
   );
 };
-
 export default MainSection;
