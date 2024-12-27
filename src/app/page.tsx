@@ -3,12 +3,20 @@ import "@/Styles/global.css";
 import { useState, useRef, ChangeEvent } from "react";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
+import { useEffect, useCallback } from "react";
 
 const SignInPage = () => {
   const [phoneNumber, setPhoneNumber] = useState<string>("");
-  const [verificationCode, setVerificationCode] = useState<string[]>(["", "", "", ""]);
+  const [verificationCode, setVerificationCode] = useState<string[]>([
+    "",
+    "",
+    "",
+    "",
+  ]);
   const [isVerified, setIsVerified] = useState<boolean>(false);
-  const [verificationStatus, setVerificationStatus] = useState<string | null>(null);
+  const [verificationStatus, setVerificationStatus] = useState<string | null>(
+    null
+  );
   const router = useRouter();
   const firstInputRef = useRef<HTMLInputElement | null>(null);
 
@@ -17,12 +25,14 @@ const SignInPage = () => {
   };
 
   const handleLogin = () => {
-    const phoneRegex = /^(091[0-9]{8}|092[0-9]{8}|093[0-9]{8}|[0-9]{10})$/;
+    const phoneRegex = /^(091[0-9]{8}|092[0-9]{8}|093[0-9]{8})$/;
 
     if (!phoneNumber) {
       alert("لطفاً شماره تلفن را وارد کنید.");
     } else if (!phoneRegex.test(phoneNumber)) {
-      alert("شماره تلفن وارد شده صحیح نیست. لطفاً شماره تلفن صحیح با پیش‌شماره معتبر وارد کنید.");
+      alert(
+        "شماره تلفن وارد شده صحیح نیست. لطفاً شماره تلفن صحیح با پیش‌شماره معتبر وارد کنید."
+      );
     } else {
       const verificationCode = generateVerificationCode();
       sessionStorage.setItem("phoneNumber", phoneNumber);
@@ -37,7 +47,6 @@ const SignInPage = () => {
   const handlePhoneChange = (e: ChangeEvent<HTMLInputElement>) => {
     const phone = e.target.value;
 
-    // فقط اعداد را قبول می‌کنیم
     const regex = /^[0-9]*$/;
 
     if (regex.test(phone)) {
@@ -58,12 +67,14 @@ const SignInPage = () => {
     setVerificationCode(newCode);
 
     if (value && index < verificationCode.length - 1) {
-      const nextInput = document.getElementById(`code-input-${index + 1}`) as HTMLInputElement | null;
+      const nextInput = document.getElementById(
+        `code-input-${index + 1}`
+      ) as HTMLInputElement | null;
       nextInput?.focus();
     }
   };
 
-  const handleVerifyCode = () => {
+  const handleVerifyCode = useCallback(() => {
     const storedCode = sessionStorage.getItem("verificationCode");
 
     if (verificationCode.join("") === storedCode) {
@@ -72,18 +83,38 @@ const SignInPage = () => {
       router.push("/dashboard");
     } else {
       setVerificationStatus("error");
+      setTimeout(() => {
+        setIsVerified(false);
+        setPhoneNumber("");
+        setVerificationCode(["", "", "", ""]);
+        setVerificationStatus(null);
+      }, 2000);
     }
-  };
+  }, [verificationCode, router]);
 
   const getInputClass = (index: number, isFocused: boolean) => {
     if (verificationStatus === "success") {
-      return "border-green-500 bg-[#fff]";
+      return "border-4 border-green-500 bg-[#fff]";
     }
     if (verificationStatus === "error") {
-      return "border-red-500 bg-[#fff]";
+      return "border-4 border-red-500 bg-[#fff]";
     }
     return isFocused ? "border-gray-300" : "border-gray-300";
   };
+
+  useEffect(() => {
+    const handleEnterKey = (e: KeyboardEvent) => {
+      if (e.key === "Enter" && isVerified) {
+        handleVerifyCode();
+      }
+    };
+
+    document.addEventListener("keydown", handleEnterKey);
+
+    return () => {
+      document.removeEventListener("keydown", handleEnterKey);
+    };
+  }, [isVerified, handleVerifyCode]);
 
   return (
     <div className="bg-[#EDEDED] h-screen flex justify-center items-center">
@@ -124,7 +155,9 @@ const SignInPage = () => {
               </>
             ) : (
               <div className="flex flex-col justify-center items-center">
-                <p className="mb-4 text-[13px] pb-2 text-center">کد پیامک شده را وارد کنید</p>
+                <p className="mb-4 text-[13px] pb-2 text-center">
+                  کد پیامک شده را وارد کنید
+                </p>
                 <div dir="ltr">
                   {verificationCode.map((value, index) => (
                     <input
@@ -134,7 +167,10 @@ const SignInPage = () => {
                       value={value}
                       onChange={(e) => handleCodeChange(e.target.value, index)}
                       maxLength={1}
-                      className={`w-10 h-10 m-1 text-center border focus:outline-none bg-[#D5E8D4] ${getInputClass(index, document.activeElement?.id === `code-input-${index}`)}`}
+                      className={`w-10 h-10 m-1 text-center border focus:outline-none bg-[#D5E8D4] ${getInputClass(
+                        index,
+                        document.activeElement?.id === `code-input-${index}`
+                      )}`}
                       ref={index === 0 ? firstInputRef : null}
                     />
                   ))}
