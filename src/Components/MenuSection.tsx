@@ -6,9 +6,9 @@ import { usePathname } from "next/navigation";
 const menuItems = [
   { id: 1, icon: "/images/png/app-shop.png", title: "محصولات", link: "/products" },
   { id: 2, icon: "/images/png/checked.png", title: "سفارشات", link: "/orders" },
-  { id: 3, icon: "/images/png/levels.png", title: "آنالیز فروش", link: "/sales-analysis" },
+  { id: 3, icon: "/images/png/levels.png", title: "آنالیز فروش", link: "/analysis" },
   { id: 4, icon: "/images/png/browser-1.png", title: "سرنخ های فروش", link: "/leads" },
-  { id: 5, icon: "/images/png/user-1.png", title: "سازمان فروش", link: "/sales-org" },
+  { id: 5, icon: "/images/png/user-1.png", title: "سازمان فروش", link: "/organization" },
 ];
 
 const MenuSection = () => {
