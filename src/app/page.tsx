@@ -17,16 +17,12 @@ const SignInPage = () => {
   };
 
   const handleLogin = () => {
-    const phoneRegex = /^[0-9]+$/;
+    const phoneRegex = /^(091[0-9]{8}|092[0-9]{8}|093[0-9]{8}|[0-9]{10})$/;
 
     if (!phoneNumber) {
       alert("لطفاً شماره تلفن را وارد کنید.");
-    } else if (phoneNumber.length !== 11) {
-      alert("شماره تلفن باید 11 رقمی باشد.");
-    } else if (phoneNumber.includes(" ")) {
-      alert("شماره تلفن نباید شامل فضای خالی باشد.");
     } else if (!phoneRegex.test(phoneNumber)) {
-      alert("شماره تلفن نباید شامل حروف باشد.");
+      alert("شماره تلفن وارد شده صحیح نیست. لطفاً شماره تلفن صحیح با پیش‌شماره معتبر وارد کنید.");
     } else {
       const verificationCode = generateVerificationCode();
       sessionStorage.setItem("phoneNumber", phoneNumber);
@@ -39,12 +35,19 @@ const SignInPage = () => {
   };
 
   const handlePhoneChange = (e: ChangeEvent<HTMLInputElement>) => {
-    setPhoneNumber(e.target.value);
+    const phone = e.target.value;
+
+    // فقط اعداد را قبول می‌کنیم
+    const regex = /^[0-9]*$/;
+
+    if (regex.test(phone)) {
+      setPhoneNumber(phone);
+    }
   };
 
   const handleKeyPress = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === "Enter") {
-      handleVerifyCode();
+      handleLogin();
     }
   };
 
@@ -133,13 +136,12 @@ const SignInPage = () => {
                       maxLength={1}
                       className={`w-10 h-10 m-1 text-center border focus:outline-none bg-[#D5E8D4] ${getInputClass(index, document.activeElement?.id === `code-input-${index}`)}`}
                       ref={index === 0 ? firstInputRef : null}
-                      onKeyDown={handleKeyPress}  
                     />
                   ))}
                 </div>
                 <button
                   onClick={handleVerifyCode}
-                  className="px-5 py-2 mt-3 bg-[#2A3494] text-white text-[13px] "
+                  className="px-5 py-2 mt-3 bg-[#2A3494] text-white text-[13px]"
                 >
                   تایید ورود
                 </button>
