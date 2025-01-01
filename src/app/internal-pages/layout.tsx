@@ -1,6 +1,6 @@
-import Footer from '@/Components/Footer';
-import Header from '@/Components/Header';
-import MenuSection from '@/Components/MenuSection';
+import Footer from '@/components/footer';
+import Header from '@/components/header';
+import MenuSection from '@/components/menu-section';
 import React, { ReactNode } from 'react';
 
 type LayoutProps = {

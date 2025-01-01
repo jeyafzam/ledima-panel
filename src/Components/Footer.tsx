@@ -1,4 +1,4 @@
-import "@/Styles/global.css";
+
 const Footer = () =>{
     return(
         <footer className="flex justify-between pb-3 border-t border-[#B2B2B2]">

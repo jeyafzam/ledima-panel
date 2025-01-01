@@ -79,7 +79,7 @@ const SignInPage = () => {
     if (verificationCode.join("") === storedCode) {
       setVerificationStatus("success");
       setIsVerified(true);
-      router.push("/internalpages/dashboard");
+      router.push("/internal-pages/dashboard");
     } else {
       setVerificationStatus("error");
       setTimeout(() => {

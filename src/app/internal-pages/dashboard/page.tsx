@@ -1,5 +1,5 @@
 "use client";
-import MainSection from "@/Components/MainSection";
+import MainSection from "@/components/main-section";
 
 const Dashboard = () => {
   return (

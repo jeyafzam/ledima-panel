@@ -4,11 +4,11 @@ import { useRouter } from "next/navigation";
 import { usePathname } from "next/navigation";
 
 const menuItems = [
-  { id: 1, icon: "/images/png/app-shop.png", title: "محصولات", link: "/internalpages/products" },
-  { id: 2, icon: "/images/png/checked.png", title: "سفارشات", link: "/internalpages/orders" },
-  { id: 3, icon: "/images/png/levels.png", title: "آنالیز فروش", link: "/internalpages/analysis" },
-  { id: 4, icon: "/images/png/browser-1.png", title: "سرنخ های فروش", link: "/internalpages/leads" },
-  { id: 5, icon: "/images/png/user-1.png", title: "سازمان فروش", link: "/internalpages/organization" },
+  { id: 1, icon: "/images/png/app-shop.png", title: "محصولات", link: "/internal-pages/products" },
+  { id: 2, icon: "/images/png/checked.png", title: "سفارشات", link: "/internal-pages/orders" },
+  { id: 3, icon: "/images/png/levels.png", title: "آنالیز فروش", link: "/internal-pages/analysis" },
+  { id: 4, icon: "/images/png/browser-1.png", title: "سرنخ های فروش", link: "/internal-pages/leads" },
+  { id: 5, icon: "/images/png/user-1.png", title: "سازمان فروش", link: "/internal-pages/organization" },
 ];
 
 const MenuSection = () => {

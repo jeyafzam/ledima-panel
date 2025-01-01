@@ -1,6 +1,6 @@
 import React, { ReactNode } from "react";
 
-import "@/Styles/global.css";
+import "@/styles/global.css";
 
 export const metadata = {
   title: "ladima-panel",
