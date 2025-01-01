@@ -1,5 +1,7 @@
 import React, { ReactNode } from "react";
 
+import "@/Styles/global.css";
+
 export const metadata = {
   title: "ladima-panel",
   description: "A Next.js app",
