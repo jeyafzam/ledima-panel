@@ -1,5 +1,5 @@
 import Image from "next/image";
-import "@/Styles/global.css";
+
 import NotificationBadge from "@/components/notification-badge";
 
 const Header = () => {
