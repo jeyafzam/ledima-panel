@@ -10,7 +10,7 @@ type LayoutProps = {
 const Layout: React.FC<LayoutProps> = ({ children }) => {
   return (
     <div className="bg-[#EDEDED] min-h-screen">
-      <div className="container mx-auto lg:max-w-[1200px] px-4 sm:px-6 md:px-8">
+      <div className="container mx-auto lg:max-w-[1220px] px-4 sm:px-6 md:px-8">
         <Header />
         <MenuSection />
         {children}

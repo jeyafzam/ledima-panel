@@ -1,0 +1,59 @@
+.ant-slider{
+  margin: 0;
+}
+.ant-slider-horizontal .ant-slider-handle {
+  opacity: 0;
+}
+
+.ant-slider-horizontal .ant-slider-track {
+  height: 2.5px;
+}
+
+.ant-slider .ant-slider-dot {
+  background-color: #000;
+  border: none;
+  width: 4px;
+  height: 4px;
+  inset-block-start: -1px;
+}
+
+.ant-slider-horizontal .ant-slider-rail {
+  height: 2.5px;
+}
+
+.ant-slider .ant-slider-mark-text {
+  display: none;
+}
+
+.ant-slider-tooltip .ant-tooltip-inner {
+  width: 31px; 
+  height: 30px; 
+  background-color: #0da35b; 
+  border-radius: 50%; 
+  position: relative;
+  top: -8px; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.ant-slider-tooltip .ant-tooltip-inner::after {
+  content: "";
+  position: absolute;
+  bottom: -11px; 
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: 14px solid transparent; 
+  border-right: 14px solid transparent; 
+  border-top: 20px solid #0da35b; 
+}
+
+.ant-tooltip-inner {
+  margin-bottom: -8px;
+}
+
+.ant-tooltip-placement-top .ant-tooltip-arrow {
+  display: none ;
+}
